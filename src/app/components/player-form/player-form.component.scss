@@ -1,0 +1,79 @@
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  select {
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  
+  .tym-blok {
+    margin-bottom: 2rem;
+  }
+  
+  .radek-header {
+    display: grid;
+    grid-template-columns: 150px 70px 70px 70px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    align-items: center;
+  }
+  
+  .hrac-radek {
+    display: grid;
+    grid-template-columns: 150px 70px 70px 70px;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+  
+  .jmeno {
+    font-weight: 500;
+  }
+  
+  /* Styl pro celé rozložení domácí vs hostující tým */
+  .tym-container {
+    display: flex;
+    gap: 3rem;
+    margin-top: 20px;
+  }
+  
+  h2, h3 {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .m-l {
+    margin-left: 50px;
+  }
+
+  .form-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 900px;
+  }
+  

@@ -1,0 +1,59 @@
+<div class="form-card">
+    <h2>Přidání sestav týmů</h2>
+
+    <form class="soupiska-form">
+    <!-- Výběr zápasu -->
+    <label for="zapas"><strong>Zápas:</strong></label>
+    <select id="zapas" [(ngModel)]="selectedZapas" name="zapas" (change)="onZapasChange()">
+        <option *ngFor="let z of zapasy" [value]="z.idZapas">
+        {{ z.domaci }} vs {{ z.host }} ({{ z.datum | date: 'shortDate' }})
+        </option>
+    </select>
+
+    <div class="tym-wrapper">
+        <!-- Domácí tým -->
+        <!-- Domácí tým -->
+    <div class="tym-blok">
+        <h3>Domácí tým</h3>
+    
+        <!-- Hlavička checkboxů -->
+        <div class="radek-header">
+        <span class="jmeno-placeholder"></span>
+        <span>Hraje</span>
+        <span>Kapitán</span>
+        <span>Libero</span>
+        </div>
+    
+        <!-- Hráči -->
+        <div *ngFor="let hrac of domaciHraci" class="hrac-radek">
+        <span class="jmeno">{{ hrac.jmeno }}</span>
+        <input type="checkbox" [(ngModel)]="hrac.hraje" name="hraje-{{hrac.idHrac}}">
+        <input type="checkbox" [(ngModel)]="hrac.kapitan" name="kapitan-{{hrac.idHrac}}">
+        <input type="checkbox" [(ngModel)]="hrac.libero" name="libero-{{hrac.idHrac}}">
+        </div>
+    </div>
+    
+    <!-- Hostující tým -->
+    <div class="tym-blok">
+        <h3>Hostující tým</h3>
+    
+        <div class="radek-header">
+        <span class="jmeno-placeholder"></span>
+        <span>Hraje</span>
+        <span>Kapitán</span>
+        <span>Libero</span>
+        </div>
+    
+        <div *ngFor="let hrac of hostujiciHraci" class="hrac-radek">
+        <span class="jmeno">{{ hrac.jmeno }}</span>
+        <input type="checkbox" [(ngModel)]="hrac.hraje" name="hraje-h-{{hrac.idHrac}}">
+        <input type="checkbox" [(ngModel)]="hrac.kapitan" name="kapitan-h-{{hrac.idHrac}}">
+        <input type="checkbox" [(ngModel)]="hrac.libero" name="libero-h-{{hrac.idHrac}}">
+        </div>
+    </div>
+    </div>
+
+    <button class="submit-button" (click)="submitForm()">Přidat soupisky</button>
+    <button class="submit-button m-l" (click)="submitFormSQL()">Přidat soupisky SQL</button>
+    </form>
+</div>
