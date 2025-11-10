@@ -1,0 +1,284 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\services\\zapasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\services\\zapasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\services\\sqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\services\\sqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\controllers\\zapascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\controllers\\zapascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\parameters\\sestavainput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\parameters\\sestavainput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\parameters\\vlozsestavurequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\parameters\\vlozsestavurequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\controllers\\functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\controllers\\functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\zapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\zapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\tym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\tym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\volejbalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\volejbalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\models\\hrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\models\\hrac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|c:\\users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi ii\\projekt\\api\\api\\api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B3BF3D2-DEDD-43D6-B136-D8ECA6D72425}|api\\api.csproj|solutionrelative:api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 791,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "api\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T15:14:56.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Program.cs",
+              "RelativeDocumentMoniker": "api\\Program.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Program.cs",
+              "RelativeToolTip": "api\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwB0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:07:24.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ZapasService.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Services\\ZapasService.cs",
+              "RelativeDocumentMoniker": "api\\Services\\ZapasService.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Services\\ZapasService.cs",
+              "RelativeToolTip": "api\\Services\\ZapasService.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAswGAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:30:12.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ZapasController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\ZapasController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\ZapasController.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\ZapasController.cs",
+              "RelativeToolTip": "api\\Controllers\\ZapasController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADgvy8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:27:43.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SestavaInput.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Parameters\\SestavaInput.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Parameters\\SestavaInput.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Parameters\\SestavaInput.cs",
+              "RelativeToolTip": "api\\Models\\Parameters\\SestavaInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T13:00:53.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Hrac.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Hrac.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Hrac.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Hrac.cs",
+              "RelativeToolTip": "api\\Models\\Hrac.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:22:35.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\appsettings.json",
+              "RelativeDocumentMoniker": "api\\appsettings.json",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\appsettings.json",
+              "RelativeToolTip": "api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-04T09:08:53.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VlozSestavuRequest.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Parameters\\VlozSestavuRequest.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Parameters\\VlozSestavuRequest.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Parameters\\VlozSestavuRequest.cs",
+              "RelativeToolTip": "api\\Models\\Parameters\\VlozSestavuRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T13:01:28.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "api.http",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\api.http",
+              "RelativeDocumentMoniker": "api\\api.http",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\api.http",
+              "RelativeToolTip": "api\\api.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-05-06T11:18:34.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "VolejbalContext.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\VolejbalContext.cs",
+              "RelativeDocumentMoniker": "api\\Models\\VolejbalContext.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\VolejbalContext.cs",
+              "RelativeToolTip": "api\\Models\\VolejbalContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:22:26.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SqlService.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Services\\SqlService.cs",
+              "RelativeDocumentMoniker": "api\\Services\\SqlService.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Services\\SqlService.cs",
+              "RelativeToolTip": "api\\Services\\SqlService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwDQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T12:57:57.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FunctionController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\FunctionController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\FunctionController.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Controllers\\FunctionController.cs",
+              "RelativeToolTip": "api\\Controllers\\FunctionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T13:29:13.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Zapa.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Zapa.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Zapa.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Zapa.cs",
+              "RelativeToolTip": "api\\Models\\Zapa.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T13:30:29.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Tym.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Tym.cs",
+              "RelativeDocumentMoniker": "api\\Models\\Tym.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\Models\\Tym.cs",
+              "RelativeToolTip": "api\\Models\\Tym.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T13:35:43.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "api\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\micha\\michal.krizak\\\u0161kola\\4_semestr\\dsi II\\projekt\\api\\api\\api\\WeatherForecast.cs",
+              "RelativeToolTip": "api\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T09:07:28.043Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 254,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
