@@ -2,6 +2,9 @@
 //using api.Data;
 using api.Models;
 using api.Services;
+using api.BLL.Interfaces;
+using api.DAL.Interfaces;
+using api.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace api
@@ -25,7 +28,13 @@ namespace api
             builder.Services.AddDbContext<VolejbalContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // DAL layer - Repository registrations
+            builder.Services.AddScoped<ISestavaZapasuDao, SestavaZapasuRepository>();
 
+            // BLL layer - Service registrations
+            builder.Services.AddScoped<IZapasService, api.BLL.Services.ZapasService>();
+            
+            // Legacy services (keeping for backward compatibility)
             builder.Services.AddScoped<ZapasService>();
             builder.Services.AddScoped<SqlService>();
 

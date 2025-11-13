@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using api.Services;
+using api.BLL.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,10 +11,9 @@ namespace api.Controllers
     [ApiController]
     public class ZapasController : ControllerBase
     {
-        private readonly ZapasService _zapasService;
-        private readonly VolejbalContext _context;
+        private readonly IZapasService _zapasService;
 
-        public ZapasController(ZapasService zapasService, SqlService sqlService)
+        public ZapasController(IZapasService zapasService)
         {
             _zapasService = zapasService;
         }

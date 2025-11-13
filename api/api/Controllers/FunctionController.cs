@@ -35,16 +35,18 @@ namespace api.Controllers
             var zapasy = await _context.Zapas
                 .Include(z => z.IdTym1Navigation)
                 .Include(z => z.IdTym2Navigation)
-                .Select(z => new {
-                    idZapas = z.IdZapas,
-                    domaci = z.IdTym1Navigation.Nazev,
-                    host = z.IdTym2Navigation.Nazev,
-                    datum = z.Datum,
-                    idTym1 = z.IdTym1,
-                    idTym2 = z.IdTym2
-                }).ToListAsync();
+                .ToListAsync();
 
-            return Ok(zapasy);
+            var result = zapasy.Select(z => new {
+                idZapas = z.IdZapas,
+                domaci = z.IdTym1Navigation?.Nazev ?? "N/A",
+                host = z.IdTym2Navigation?.Nazev ?? "N/A",
+                datum = z.Datum,
+                idTym1 = z.IdTym1,
+                idTym2 = z.IdTym2
+            });
+
+            return Ok(result);
         }
 
         [HttpGet("hraci/byTym/{idTym}")]
