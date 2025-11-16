@@ -30,6 +30,10 @@ namespace api
 
             // DAL layer - Repository registrations
             builder.Services.AddScoped<ISestavaZapasuDao, SestavaZapasuRepository>();
+            builder.Services.AddScoped<IZapasDao, ZapasRepository>();
+            builder.Services.AddScoped<ISezonaDao, SezonaRepository>();
+            builder.Services.AddScoped<ITymDao, TymRepository>();
+            builder.Services.AddScoped<IHracDao, HracRepository>();
 
             // BLL layer - Service registrations
             builder.Services.AddScoped<IZapasService, api.BLL.Services.ZapasService>();

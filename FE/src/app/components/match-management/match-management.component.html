@@ -1,0 +1,253 @@
+<div class="match-management-container">
+  <h1>Správa zápasu</h1>
+
+  <!-- Vyhledávací formulář -->
+  <div class="search-form-card">
+    <h2>Vyhledat zápas</h2>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="datum">Datum zápasu:</label>
+        <input 
+          type="date" 
+          id="datum" 
+          [(ngModel)]="selectedDate" 
+          name="datum"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="sezona">Sezona:</label>
+        <select 
+          id="sezona" 
+          [(ngModel)]="selectedSeason" 
+          name="sezona"
+          (change)="onSeasonChange()"
+        >
+          <option [value]="undefined">-- Vybrat sezónu --</option>
+          <option *ngFor="let sezona of seasons" [value]="sezona.idSezona">
+            {{ sezona.nazev }} ({{ sezona.rok }})
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="domaciTym">Domácí tým:</label>
+        <select 
+          id="domaciTym" 
+          [(ngModel)]="selectedHomeTeam" 
+          name="domaciTym"
+          (change)="onHomeTeamChange()"
+        >
+          <option [value]="undefined">-- Vybrat tým --</option>
+          <option *ngFor="let tym of homeTeams" [value]="tym.idTym">
+            {{ tym.nazev }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="hostujiciTym">Hostující tým:</label>
+        <select 
+          id="hostujiciTym" 
+          [(ngModel)]="selectedAwayTeam" 
+          name="hostujiciTym"
+          (change)="onAwayTeamChange()"
+        >
+          <option [value]="undefined">-- Vybrat tým --</option>
+          <option *ngFor="let tym of awayTeams" [value]="tym.idTym">
+            {{ tym.nazev }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="searchMatches()">
+      Vyhledat zápas
+    </button>
+  </div>
+
+  <!-- Výsledky vyhledávání -->
+  <div *ngIf="searchPerformed" class="search-results">
+    <!-- Žádné zápasy nenalezeny -->
+    <div *ngIf="noMatchesFound" class="no-results">
+      <h3>Zápas nenalezen</h3>
+      <p>Žádné zápasy nebyly nalezeny.</p>
+      <button class="btn btn-success" (click)="createNewMatch()">
+        Vytvořit zápas
+      </button>
+    </div>
+
+    <!-- Seznam nalezených zápasů -->
+    <div *ngIf="!noMatchesFound" class="matches-list">
+      <h3>Zápas nalezen</h3>
+      <div class="match-item" 
+           *ngFor="let match of matches" 
+           (click)="selectMatch(match)"
+           [class.selected]="selectedMatch?.idZapas === match.idZapas">
+        <div class="match-info">
+          <strong>{{ match.nazevTym1 }} × {{ match.nazevTym2 }}</strong>
+          <span class="match-date">{{ match.datum | date: 'dd.MM.yyyy' }}</span>
+          <span class="match-score" *ngIf="match.skoreTym1 !== null && match.skoreTym2 !== null">
+            {{ match.skoreTym1 }} : {{ match.skoreTym2 }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail zápasu -->
+  <div *ngIf="selectedMatch && matchDetails" class="match-details">
+    <h2>Detail zápasu</h2>
+    
+    <div class="details-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="detailDatum">Datum zápasu:</label>
+          <input 
+            type="date" 
+            id="detailDatum" 
+            [(ngModel)]="matchDetails.datum" 
+            name="detailDatum"
+            [disabled]="!editMode"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="detailSezona">Sezona:</label>
+          <select 
+            id="detailSezona" 
+            [(ngModel)]="matchDetails.idSezona" 
+            name="detailSezona"
+            [disabled]="!editMode"
+          >
+            <option *ngFor="let sezona of seasons" [value]="sezona.idSezona">
+              {{ sezona.nazev }} ({{ sezona.rok }})
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="detailDomaciTym">Domácí tým:</label>
+          <select 
+            id="detailDomaciTym" 
+            [(ngModel)]="matchDetails.idTym1" 
+            name="detailDomaciTym"
+            [disabled]="!editMode"
+          >
+            <option *ngFor="let tym of teams" [value]="tym.idTym">
+              {{ tym.nazev }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="detailHostujiciTym">Hostující tým:</label>
+          <select 
+            id="detailHostujiciTym" 
+            [(ngModel)]="matchDetails.idTym2" 
+            name="detailHostujiciTym"
+            [disabled]="!editMode"
+          >
+            <option *ngFor="let tym of teams" [value]="tym.idTym">
+              {{ tym.nazev }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="skoreTym1">Skóre domácí:</label>
+          <input 
+            type="number" 
+            id="skoreTym1" 
+            [(ngModel)]="matchDetails.skoreTym1" 
+            name="skoreTym1"
+            [disabled]="!editMode"
+            min="0"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="skoreTym2">Skóre hostující:</label>
+          <input 
+            type="number" 
+            id="skoreTym2" 
+            [(ngModel)]="matchDetails.skoreTym2" 
+            name="skoreTym2"
+            [disabled]="!editMode"
+            min="0"
+          >
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button *ngIf="!editMode" class="btn btn-primary" (click)="enableEditMode()">
+          Upravit zápas
+        </button>
+        <button *ngIf="editMode" class="btn btn-success" (click)="saveMatchDetails()">
+          Uložit zápas
+        </button>
+        <button class="btn btn-danger" (click)="deleteMatch()">
+          Smazat zápas
+        </button>
+      </div>
+    </div>
+
+    <!-- Přidání sestav týmů -->
+    <div class="lineups-section">
+      <h2>Přidání sestav týmů</h2>
+
+      <div class="tym-wrapper">
+        <!-- Domácí tým -->
+        <div class="tym-blok">
+          <h3>Sestava domácího týmu</h3>
+          <p class="team-name">{{ selectedMatch.nazevTym1 }}</p>
+
+          <div class="radek-header">
+            <span class="jmeno-placeholder">Hráč</span>
+            <span>Hraje</span>
+            <span>Kapitán</span>
+            <span>Libero</span>
+          </div>
+
+          <div *ngFor="let hrac of homeLineup" class="hrac-radek">
+            <span class="jmeno">{{ hrac.jmeno }} {{ hrac.prijmeni }}</span>
+            <input type="checkbox" [(ngModel)]="hrac.hraje" name="hraje-{{hrac.idHrac}}">
+            <input type="checkbox" [(ngModel)]="hrac.kapitan" name="kapitan-{{hrac.idHrac}}">
+            <input type="checkbox" [(ngModel)]="hrac.libero" name="libero-{{hrac.idHrac}}">
+          </div>
+        </div>
+
+        <!-- Hostující tým -->
+        <div class="tym-blok">
+          <h3>Sestava hostujícího týmu</h3>
+          <p class="team-name">{{ selectedMatch.nazevTym2 }}</p>
+
+          <div class="radek-header">
+            <span class="jmeno-placeholder">Hráč</span>
+            <span>Hraje</span>
+            <span>Kapitán</span>
+            <span>Libero</span>
+          </div>
+
+          <div *ngFor="let hrac of awayLineup" class="hrac-radek">
+            <span class="jmeno">{{ hrac.jmeno }} {{ hrac.prijmeni }}</span>
+            <input type="checkbox" [(ngModel)]="hrac.hraje" name="hraje-h-{{hrac.idHrac}}">
+            <input type="checkbox" [(ngModel)]="hrac.kapitan" name="kapitan-h-{{hrac.idHrac}}">
+            <input type="checkbox" [(ngModel)]="hrac.libero" name="libero-h-{{hrac.idHrac}}">
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-large" (click)="saveLineups()">
+        Přidat soupisky
+      </button>
+    </div>
+  </div>
+</div>

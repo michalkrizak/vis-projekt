@@ -1,0 +1,2 @@
+FE: npm start
+API: dotnet run --project api.csproj --launch-profile https
