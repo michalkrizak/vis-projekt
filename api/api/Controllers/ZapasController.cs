@@ -129,6 +129,21 @@ namespace api.Controllers
             }
         }
 
+        // F9a: GetMatchLineups
+        [HttpGet("{idZapas}/lineups")]
+        public async Task<IActionResult> GetMatchLineups(int idZapas)
+        {
+            try
+            {
+                var lineups = await _zapasService.GetMatchLineupsAsync(idZapas);
+                return Ok(lineups);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
         // F9: SaveMatchLineups (existing vloz-sestavu)
         [HttpPost("lineups")]
         public async Task<IActionResult> SaveMatchLineups([FromBody] VlozSestavuRequest request)

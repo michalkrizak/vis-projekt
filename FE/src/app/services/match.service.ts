@@ -65,6 +65,16 @@ export interface UpdateZapasDto {
   vitez?: number;
 }
 
+export interface HracSestavaDto {
+  idHrac: number;
+  jmeno: string;
+  prijmeni: string;
+  idTym: number;
+  hraje: boolean;
+  jeKapitan: boolean;
+  jeLibero: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -109,6 +119,11 @@ export class MatchService {
   // F8: Get Players By Team
   getPlayersByTeam(idTym: number): Observable<Hrac[]> {
     return this.http.get<Hrac[]>(`${this.apiUrl}/players/${idTym}`);
+  }
+
+  // F9a: Get Match Lineups
+  getMatchLineups(idZapas: number): Observable<HracSestavaDto[]> {
+    return this.http.get<HracSestavaDto[]>(`${this.apiUrl}/${idZapas}/lineups`);
   }
 
   // F9: Save Match Lineups

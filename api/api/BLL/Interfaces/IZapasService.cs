@@ -20,5 +20,6 @@ namespace api.BLL.Interfaces
         Task SaveMatchAsync(UpdateZapasDto updateDto);
         Task DeleteMatchAsync(int idZapas);
         Task<IEnumerable<Hrac>> GetPlayersByTeamAsync(int idTym);
+        Task<IEnumerable<HracSestavaDto>> GetMatchLineupsAsync(int idZapas);
     }
 }

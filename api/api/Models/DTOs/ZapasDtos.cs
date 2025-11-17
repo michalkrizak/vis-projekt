@@ -43,4 +43,15 @@ namespace api.Models.DTOs
         public int? SkoreTym2 { get; set; }
         public int? Vitez { get; set; }
     }
+
+    public class HracSestavaDto
+    {
+        public int IdHrac { get; set; }
+        public string Jmeno { get; set; } = null!;
+        public string Prijmeni { get; set; } = null!;
+        public int IdTym { get; set; }
+        public bool Hraje { get; set; }
+        public bool JeKapitan { get; set; }
+        public bool JeLibero { get; set; }
+    }
 }

@@ -177,6 +177,59 @@ export class MatchManagementComponent implements OnInit {
   loadLineups() {
     if (!this.selectedMatch) return;
 
+    // Load saved lineups first
+    this.matchService.getMatchLineups(this.selectedMatch.idZapas).subscribe({
+      next: (savedLineups) => {
+        // Create a map of saved lineup data by player ID
+        const lineupMap = new Map(savedLineups.map(sl => [sl.idHrac, sl]));
+
+        // Load home team players
+        this.matchService.getPlayersByTeam(this.selectedMatch!.idTym1).subscribe({
+          next: (players) => {
+            this.homeLineup = players.map(p => {
+              const saved = lineupMap.get(p.idHrac);
+              return {
+                ...p,
+                hraje: saved?.hraje ?? false,
+                kapitan: saved?.jeKapitan ?? false,
+                libero: saved?.jeLibero ?? false
+              };
+            });
+          },
+          error: (err) => {
+            console.error('Chyba při načítání hráčů domácího týmu:', err);
+          }
+        });
+
+        // Load away team players
+        this.matchService.getPlayersByTeam(this.selectedMatch!.idTym2).subscribe({
+          next: (players) => {
+            this.awayLineup = players.map(p => {
+              const saved = lineupMap.get(p.idHrac);
+              return {
+                ...p,
+                hraje: saved?.hraje ?? false,
+                kapitan: saved?.jeKapitan ?? false,
+                libero: saved?.jeLibero ?? false
+              };
+            });
+          },
+          error: (err) => {
+            console.error('Chyba při načítání hráčů hostujícího týmu:', err);
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Chyba při načítání uložených sestav:', err);
+        // If no saved lineups, load players with default values
+        this.loadPlayersWithDefaults();
+      }
+    });
+  }
+
+  private loadPlayersWithDefaults() {
+    if (!this.selectedMatch) return;
+
     // Load home team players
     this.matchService.getPlayersByTeam(this.selectedMatch.idTym1).subscribe({
       next: (players) => {

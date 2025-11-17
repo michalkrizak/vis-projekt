@@ -303,5 +303,24 @@ namespace api.BLL.Services
         {
             return await _hracDao.GetPlayersByTeamAsync(idTym);
         }
+
+        public async Task<IEnumerable<HracSestavaDto>> GetMatchLineupsAsync(int idZapas)
+        {
+            var sestavy = await _context.SestavaZapasus
+                .Include(sz => sz.IdHracNavigation)
+                .Where(sz => sz.IdZapas == idZapas)
+                .ToListAsync();
+
+            return sestavy.Select(sz => new HracSestavaDto
+            {
+                IdHrac = sz.IdHrac,
+                Jmeno = sz.IdHracNavigation.Jmeno,
+                Prijmeni = sz.IdHracNavigation.Prijmeni,
+                IdTym = sz.IdTym,
+                Hraje = true, // Pokud je v sestavě, hraje
+                JeKapitan = sz.JeKapitan ?? false,
+                JeLibero = sz.JeLibero ?? false
+            });
+        }
     }
 }
