@@ -1,0 +1,220 @@
+.team-detail {
+  padding: 30px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.detail-header h2 {
+  color: #667eea;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 36px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.team-basic-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.info-item {
+  color: #666;
+}
+
+.info-item strong {
+  color: #333;
+  margin-right: 8px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  color: #667eea;
+}
+
+.tab-btn.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.tab-content {
+  min-height: 300px;
+}
+
+/* Hráči */
+.players-list {
+  overflow-x: auto;
+}
+
+.players-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.players-table thead {
+  background: #f8f9fa;
+}
+
+.players-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.players-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.players-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* Zápasy */
+.matches-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.match-card {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.match-card:hover {
+  background: #f0f2ff;
+  transform: translateX(5px);
+}
+
+.match-date {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.match-teams {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.match-teams .vs {
+  color: #999;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.match-teams .highlight {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.match-score {
+  font-size: 18px;
+  font-weight: 600;
+  color: #667eea;
+  margin-top: 5px;
+}
+
+.match-season {
+  font-size: 13px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.loading,
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .team-detail {
+    padding: 20px;
+  }
+
+  .detail-header h2 {
+    font-size: 24px;
+  }
+
+  .team-basic-info {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+
+  .players-table {
+    font-size: 14px;
+  }
+
+  .players-table th,
+  .players-table td {
+    padding: 8px;
+  }
+}

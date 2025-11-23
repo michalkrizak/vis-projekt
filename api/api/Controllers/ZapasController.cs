@@ -180,6 +180,21 @@ namespace api.Controllers
             }
         }
 
+        // Get Team Matches
+        [HttpGet("team/{idTym}/matches")]
+        public async Task<IActionResult> GetTeamMatches(int idTym)
+        {
+            try
+            {
+                var matches = await _zapasService.GetTeamMatchesAsync(idTym);
+                return Ok(matches);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
         // Legacy endpoint - kept for backward compatibility
         [HttpPost("vloz-sestavu")]
         public async Task<IActionResult> VlozSestavu([FromBody] VlozSestavuRequest request)

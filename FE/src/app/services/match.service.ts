@@ -135,4 +135,9 @@ export class MatchService {
   deleteMatch(idZapas: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${idZapas}`);
   }
+
+  // Get Team Matches
+  getTeamMatches(idTym: number): Observable<ZapasDto[]> {
+    return this.http.get<ZapasDto[]>(`${this.apiUrl}/team/${idTym}/matches`);
+  }
 }

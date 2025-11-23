@@ -322,5 +322,33 @@ namespace api.BLL.Services
                 JeLibero = sz.JeLibero ?? false
             });
         }
+
+        public async Task<IEnumerable<ZapasDto>> GetTeamMatchesAsync(int idTym)
+        {
+            var zapasy = await _context.Zapas
+                .Include(z => z.IdTym1Navigation)
+                .Include(z => z.IdTym2Navigation)
+                .Include(z => z.IdSezonaNavigation)
+                .Include(z => z.VitezNavigation)
+                .Where(z => z.IdTym1 == idTym || z.IdTym2 == idTym)
+                .OrderByDescending(z => z.Datum)
+                .ToListAsync();
+
+            return zapasy.Select(z => new ZapasDto
+            {
+                IdZapas = z.IdZapas,
+                Datum = z.Datum.ToString("yyyy-MM-dd"),
+                IdTym1 = z.IdTym1,
+                IdTym2 = z.IdTym2,
+                IdSezona = z.IdSezona,
+                SkoreTym1 = z.SkoreTym1,
+                SkoreTym2 = z.SkoreTym2,
+                Vitez = z.Vitez,
+                NazevTym1 = z.IdTym1Navigation?.Nazev,
+                NazevTym2 = z.IdTym2Navigation?.Nazev,
+                NazevSezona = z.IdSezonaNavigation?.Nazev,
+                NazevVitez = z.VitezNavigation?.Nazev
+            });
+        }
     }
 }

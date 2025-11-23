@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule],
+  imports: [RouterModule, NavigationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'volejbal-app';
-
-  constructor(private router: Router) { }
-
-  navigate(){
-    this.router.navigate(['/app-player-form']);
-
-  }
-
 }

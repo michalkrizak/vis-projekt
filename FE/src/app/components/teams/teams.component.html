@@ -1,0 +1,52 @@
+<div class="teams-container">
+  <h1>Týmy</h1>
+
+  <!-- Výběr sezóny -->
+  <div class="season-selector">
+    <div class="form-group">
+      <label for="sezona">Vyberte sezónu:</label>
+      <select 
+        id="sezona" 
+        [(ngModel)]="selectedSeason" 
+        name="sezona"
+        (change)="onSeasonChange()"
+      >
+        <option [value]="undefined">-- Vybrat sezónu --</option>
+        <option *ngFor="let sezona of seasons" [value]="sezona.idSezona">
+          {{ sezona.nazev }} ({{ sezona.rok }})
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Seznam týmů -->
+  <div *ngIf="teams.length > 0" class="teams-grid">
+    <div 
+      *ngFor="let team of teams" 
+      class="team-card"
+      (click)="openTeamDetail(team)"
+    >
+      <h3>{{ team.nazev }}</h3>
+      <div class="team-info">
+        <p *ngIf="team.stadion"><strong>Stadion:</strong> {{ team.stadion }}</p>
+        <p *ngIf="team.trener"><strong>Trenér:</strong> {{ team.trener }}</p>
+        <p *ngIf="team.datumZalozeni"><strong>Založen:</strong> {{ team.datumZalozeni | date: 'dd.MM.yyyy' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Žádné týmy -->
+  <div *ngIf="selectedSeason && teams.length === 0" class="no-teams">
+    <p>Pro vybranou sezónu nebyly nalezeny žádné týmy.</p>
+  </div>
+</div>
+
+<!-- Modální okno s detaily týmu -->
+<div *ngIf="showModal" class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <app-team-detail 
+      [team]="selectedTeam!" 
+      (close)="closeModal()"
+    ></app-team-detail>
+  </div>
+</div>

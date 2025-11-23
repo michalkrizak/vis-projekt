@@ -1,0 +1,91 @@
+<div class="team-detail">
+  <div class="detail-header">
+    <h2>{{ team.nazev }}</h2>
+    <button class="close-btn" (click)="onClose()">×</button>
+  </div>
+
+  <div class="team-basic-info">
+    <div class="info-item" *ngIf="team.stadion">
+      <strong>Stadion:</strong> {{ team.stadion }}
+    </div>
+    <div class="info-item" *ngIf="team.trener">
+      <strong>Trenér:</strong> {{ team.trener }}
+    </div>
+    <div class="info-item" *ngIf="team.datumZalozeni">
+      <strong>Datum založení:</strong> {{ team.datumZalozeni | date: 'dd.MM.yyyy' }}
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button 
+      class="tab-btn" 
+      [class.active]="activeTab === 'players'"
+      (click)="setActiveTab('players')"
+    >
+      Hráči ({{ players.length }})
+    </button>
+    <button 
+      class="tab-btn" 
+      [class.active]="activeTab === 'matches'"
+      (click)="setActiveTab('matches')"
+    >
+      Zápasy ({{ matches.length }})
+    </button>
+  </div>
+
+  <!-- Tab obsah -->
+  <div class="tab-content">
+    <!-- Seznam hráčů -->
+    <div *ngIf="activeTab === 'players'" class="players-list">
+      <div *ngIf="loading" class="loading">Načítání...</div>
+      
+      <div *ngIf="!loading && players.length === 0" class="empty-message">
+        Žádní hráči
+      </div>
+
+      <table *ngIf="!loading && players.length > 0" class="players-table">
+        <thead>
+          <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Pozice</th>
+            <th>Věk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players">
+            <td>{{ player.jmeno }}</td>
+            <td>{{ player.prijmeni }}</td>
+            <td>{{ player.pozice || '-' }}</td>
+            <td>{{ player.vek || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Seznam zápasů -->
+    <div *ngIf="activeTab === 'matches'" class="matches-list">
+      <div *ngIf="matches.length === 0" class="empty-message">
+        Žádné zápasy
+      </div>
+
+      <div *ngIf="matches.length > 0" class="matches-grid">
+        <div *ngFor="let match of matches" class="match-card">
+          <div class="match-date">{{ match.datum | date: 'dd.MM.yyyy' }}</div>
+          <div class="match-teams">
+            <span [class.highlight]="match.idTym1 === team.idTym">{{ match.nazevTym1 }}</span>
+            <span class="vs">vs</span>
+            <span [class.highlight]="match.idTym2 === team.idTym">{{ match.nazevTym2 }}</span>
+          </div>
+          <div *ngIf="match.skoreTym1 !== null && match.skoreTym2 !== null" class="match-score">
+            {{ match.skoreTym1 }} : {{ match.skoreTym2 }}
+          </div>
+          <div *ngIf="match.nazevSezona" class="match-season">
+            {{ match.nazevSezona }}
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
