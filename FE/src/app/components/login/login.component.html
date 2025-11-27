@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1>Přihlášení</h1>
+    
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="jmeno">Jméno:</label>
+        <input 
+          type="text" 
+          id="jmeno" 
+          name="jmeno"
+          [(ngModel)]="credentials.jmeno" 
+          required
+          [disabled]="isLoading"
+          placeholder="Zadejte své jméno"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="prijmeni">Příjmení:</label>
+        <input 
+          type="text" 
+          id="prijmeni" 
+          name="prijmeni"
+          [(ngModel)]="credentials.prijmeni" 
+          required
+          [disabled]="isLoading"
+          placeholder="Zadejte své příjmení"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="heslo">Heslo:</label>
+        <input 
+          type="password" 
+          id="heslo" 
+          name="heslo"
+          [(ngModel)]="credentials.heslo" 
+          required
+          [disabled]="isLoading"
+          placeholder="Zadejte své heslo"
+        >
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn btn-primary"
+        [disabled]="isLoading || !loginForm.valid"
+      >
+        <span *ngIf="!isLoading">Přihlásit se</span>
+        <span *ngIf="isLoading">Přihlašování...</span>
+      </button>
+    </form>
+  </div>
+</div>

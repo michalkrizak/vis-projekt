@@ -1,7 +1,7 @@
 <nav class="main-navigation">
   <div class="nav-container">
     <h1 class="app-title">Volejbalová aplikace</h1>
-    <ul class="nav-menu">
+    <ul class="nav-menu" *ngIf="isLoggedIn()">
       <li>
         <a routerLink="/matches" routerLinkActive="active">Správa zápasu</a>
       </li>
@@ -9,5 +9,9 @@
         <a routerLink="/teams" routerLinkActive="active">Týmy</a>
       </li>
     </ul>
+    <div class="user-section" *ngIf="isLoggedIn()">
+      <span class="user-name">{{ currentUser?.jmeno }} {{ currentUser?.prijmeni }}</span>
+      <button class="btn-logout" (click)="logout()">Odhlásit se</button>
+    </div>
   </div>
 </nav>

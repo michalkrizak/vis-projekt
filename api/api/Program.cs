@@ -34,9 +34,11 @@ namespace api
             builder.Services.AddScoped<ISezonaDao, SezonaRepository>();
             builder.Services.AddScoped<ITymDao, TymRepository>();
             builder.Services.AddScoped<IHracDao, HracRepository>();
+            builder.Services.AddScoped<ILoginDao, LoginRepository>();
 
             // BLL layer - Service registrations
             builder.Services.AddScoped<IZapasService, api.BLL.Services.ZapasService>();
+            builder.Services.AddScoped<ILoginService, api.BLL.Services.LoginService>();
             
             // Legacy services (keeping for backward compatibility)
             builder.Services.AddScoped<ZapasService>();

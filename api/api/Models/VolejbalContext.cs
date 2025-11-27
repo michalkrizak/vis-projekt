@@ -17,6 +17,8 @@ public partial class VolejbalContext : DbContext
 
     public virtual DbSet<Hrac> Hracs { get; set; }
 
+    public virtual DbSet<Login> Logins { get; set; }
+
     public virtual DbSet<SestavaZapasu> SestavaZapasus { get; set; }
 
     public virtual DbSet<Sezona> Sezonas { get; set; }
@@ -57,6 +59,27 @@ public partial class VolejbalContext : DbContext
             entity.HasOne(d => d.IdTymNavigation).WithMany(p => p.Hracs)
                 .HasForeignKey(d => d.IdTym)
                 .HasConstraintName("FK__Hrac__id_tym__38996AB5");
+        });
+
+        modelBuilder.Entity<Login>(entity =>
+        {
+            entity.HasKey(e => e.IdUzivatel);
+
+            entity.ToTable("Login");
+
+            entity.Property(e => e.IdUzivatel).HasColumnName("id_uzivatel");
+            entity.Property(e => e.Jmeno)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("jmeno");
+            entity.Property(e => e.Prijmeni)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("prijmeni");
+            entity.Property(e => e.Heslo)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("heslo");
         });
 
         modelBuilder.Entity<SestavaZapasu>(entity =>
