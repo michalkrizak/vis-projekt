@@ -1,6 +1,6 @@
 <div class="login-container">
   <div class="login-card">
-    <h1>Přihlášení</h1>
+    <h1>{{ isRegisterMode ? 'Registrace' : 'Přihlášení' }}</h1>
     
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="form-group">
@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group">
-        <label for="heslo">Heslo:</label>
+        <label for="heslo">Heslo{{ isRegisterMode ? ' (min. 6 znaků)' : '' }}:</label>
         <input 
           type="password" 
           id="heslo" 
@@ -38,6 +38,7 @@
           [(ngModel)]="credentials.heslo" 
           required
           [disabled]="isLoading"
+          [minlength]="isRegisterMode ? 6 : 1"
           placeholder="Zadejte své heslo"
         >
       </div>
@@ -51,9 +52,20 @@
         class="btn btn-primary"
         [disabled]="isLoading || !loginForm.valid"
       >
-        <span *ngIf="!isLoading">Přihlásit se</span>
-        <span *ngIf="isLoading">Přihlašování...</span>
+        <span *ngIf="!isLoading">{{ isRegisterMode ? 'Registrovat se' : 'Přihlásit se' }}</span>
+        <span *ngIf="isLoading">{{ isRegisterMode ? 'Registrace...' : 'Přihlašování...' }}</span>
       </button>
+
+      <div class="toggle-mode">
+        <button 
+          type="button" 
+          class="btn-link" 
+          (click)="toggleMode()"
+          [disabled]="isLoading"
+        >
+          {{ isRegisterMode ? 'Již máte účet? Přihlaste se' : 'Nemáte účet? Zaregistrujte se' }}
+        </button>
+      </div>
     </form>
   </div>
 </div>

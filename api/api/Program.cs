@@ -44,7 +44,14 @@ namespace api
             builder.Services.AddScoped<ZapasService>();
             builder.Services.AddScoped<SqlService>();
 
-
+            // Session Storage - druhý způsob ukládání dat
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -56,6 +63,8 @@ namespace api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

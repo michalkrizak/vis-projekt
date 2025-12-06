@@ -16,9 +16,221 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "api.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "api.Models.DTOs.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.LoginController",
+    "Method": "Register",
+    "RelativePath": "api/login/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "api.Models.DTOs.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.FunctionController",
+    "Method": "GetTymy",
+    "RelativePath": "api/tymy",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetMatchDetails",
+    "RelativePath": "api/zapas/{idZapas}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idZapas",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "DeleteMatch",
+    "RelativePath": "api/zapas/{idZapas}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idZapas",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetMatchLineups",
+    "RelativePath": "api/zapas/{idZapas}/lineups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idZapas",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "CreateMatch",
+    "RelativePath": "api/zapas/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDto",
+        "Type": "api.Models.DTOs.CreateZapasDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "FindMatches",
+    "RelativePath": "api/zapas/find",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "api.Models.DTOs.ZapasFilterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "SaveMatchLineups",
+    "RelativePath": "api/zapas/lineups",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "api.Controllers.VlozSestavuRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetPlayersByTeam",
+    "RelativePath": "api/zapas/players/{idTym}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idTym",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "SaveMatch",
+    "RelativePath": "api/zapas/save",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateDto",
+        "Type": "api.Models.DTOs.UpdateZapasDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetSeasons",
+    "RelativePath": "api/zapas/seasons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetTeamMatches",
+    "RelativePath": "api/zapas/team/{idTym}/matches",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idTym",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api.Controllers.ZapasController",
+    "Method": "GetTeams",
+    "RelativePath": "api/zapas/teams",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idSezona",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "api.Controllers.ZapasController",
     "Method": "VlozSestavu",
-    "RelativePath": "api/transaction/vloz-sestavu",
+    "RelativePath": "api/zapas/vloz-sestavu",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -34,7 +246,7 @@
   {
     "ContainingType": "api.Controllers.ZapasController",
     "Method": "VlozSestavuPresTsql",
-    "RelativePath": "api/transaction/vloz-sestavu-tsql",
+    "RelativePath": "api/zapas/vloz-sestavu-tsql",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -45,16 +257,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "api.Controllers.FunctionController",
-    "Method": "GetTymy",
-    "RelativePath": "api/tymy",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -19,4 +19,25 @@ public class LoginRepository : ILoginDao
         return await _context.Logins
             .FirstOrDefaultAsync(u => u.Jmeno == jmeno && u.Prijmeni == prijmeni && u.Heslo == heslo);
     }
+
+    public async Task<bool> UserExistsAsync(string jmeno, string prijmeni)
+    {
+        return await _context.Logins
+            .AnyAsync(u => u.Jmeno == jmeno && u.Prijmeni == prijmeni);
+    }
+
+    public async Task<Login> CreateUserAsync(string jmeno, string prijmeni, string heslo)
+    {
+        var newUser = new Login
+        {
+            Jmeno = jmeno,
+            Prijmeni = prijmeni,
+            Heslo = heslo
+        };
+
+        _context.Logins.Add(newUser);
+        await _context.SaveChangesAsync();
+
+        return newUser;
+    }
 }

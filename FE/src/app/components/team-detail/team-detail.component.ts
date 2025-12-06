@@ -17,6 +17,10 @@ export class TeamDetailComponent implements OnInit {
   matches: ZapasDto[] = [];
   activeTab: 'players' | 'matches' = 'players';
   loading: boolean = false;
+  selectedMatch: ZapasDto | null = null;
+  selectedPlayer: Hrac | null = null;
+  playerMatches: ZapasDto[] = [];
+  loadingPlayerMatches: boolean = false;
 
   constructor(private matchService: MatchService) {}
 
@@ -52,6 +56,58 @@ export class TeamDetailComponent implements OnInit {
 
   setActiveTab(tab: 'players' | 'matches') {
     this.activeTab = tab;
+  }
+
+  openMatchDetail(match: ZapasDto) {
+    this.selectedMatch = match;
+  }
+
+  closeMatchDetail() {
+    this.selectedMatch = null;
+  }
+
+  openPlayerDetail(player: Hrac) {
+    console.log('Otevírám detail hráče:', player);
+    this.selectedPlayer = player;
+    this.loadPlayerMatches(player.idHrac);
+  }
+
+  closePlayerDetail() {
+    this.selectedPlayer = null;
+    this.playerMatches = [];
+  }
+
+  loadPlayerMatches(playerId: number) {
+    this.loadingPlayerMatches = true;
+    // Načteme všechny zápasy týmu
+    this.matchService.getTeamMatches(this.team.idTym).subscribe({
+      next: (teamMatches) => {
+        // Pro každý zápas zkontrolujeme, zda v něm hráč hrál
+        const matchCheckPromises = teamMatches.map(match => 
+          this.matchService.getMatchLineups(match.idZapas).toPromise().then(lineups => {
+            const playerInMatch = lineups?.some(lineup => lineup.idHrac === playerId);
+            return playerInMatch ? match : null;
+          }).catch(() => null)
+        );
+        
+        Promise.all(matchCheckPromises).then(results => {
+          this.playerMatches = results.filter(m => m != null) as ZapasDto[];
+          this.loadingPlayerMatches = false;
+        }).catch(err => {
+          console.error('Chyba při načítání zápasů hráče:', err);
+          this.loadingPlayerMatches = false;
+        });
+      },
+      error: (err) => {
+        console.error('Chyba při načítání zápasů:', err);
+        this.loadingPlayerMatches = false;
+      }
+    });
+  }
+
+  openMatchDetailFromPlayer(match: ZapasDto) {
+    this.closePlayerDetail();
+    this.selectedMatch = match;
   }
 
   onClose() {

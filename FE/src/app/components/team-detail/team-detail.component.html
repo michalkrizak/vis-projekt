@@ -50,15 +50,13 @@
             <th>Jméno</th>
             <th>Příjmení</th>
             <th>Pozice</th>
-            <th>Věk</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let player of players">
-            <td>{{ player.jmeno }}</td>
+          <tr *ngFor="let player of players" (click)="openPlayerDetail(player)" class="player-row">
+            <td >{{ player.jmeno }}</td>
             <td>{{ player.prijmeni }}</td>
             <td>{{ player.pozice || '-' }}</td>
-            <td>{{ player.vek || '-' }}</td>
           </tr>
         </tbody>
       </table>
@@ -71,7 +69,7 @@
       </div>
 
       <div *ngIf="matches.length > 0" class="matches-grid">
-        <div *ngFor="let match of matches" class="match-card">
+        <div *ngFor="let match of matches" class="match-card" (click)="openMatchDetail(match)">
           <div class="match-date">{{ match.datum | date: 'dd.MM.yyyy' }}</div>
           <div class="match-teams">
             <span [class.highlight]="match.idTym1 === team.idTym">{{ match.nazevTym1 }}</span>
@@ -83,7 +81,104 @@
           </div>
           <div *ngIf="match.nazevSezona" class="match-season">
             {{ match.nazevSezona }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Modal pro detail zápasu -->
+  <div *ngIf="selectedMatch" class="match-detail-modal" (click)="closeMatchDetail()">
+    <div class="match-detail-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Detail zápasu</h3>
+        <button class="close-btn" (click)="closeMatchDetail()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="match-main-info">
+          <div class="teams-display">
+            <div class="team-box">
+              <div class="team-name">{{ selectedMatch.nazevTym1 }}</div>
+              <div class="team-score">{{ selectedMatch.skoreTym1 ?? '-' }}</div>
+            </div>
+            <div class="vs-separator">:</div>
+            <div class="team-box">
+              <div class="team-name">{{ selectedMatch.nazevTym2 }}</div>
+              <div class="team-score">{{ selectedMatch.skoreTym2 ?? '-' }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="match-info-grid">
+          <div class="info-row">
+            <span class="label">Datum:</span>
+            <span class="value">{{ selectedMatch.datum | date: 'dd.MM.yyyy' }}</span>
+          </div>
+          <div class="info-row" *ngIf="selectedMatch.nazevSezona">
+            <span class="label">Sezona:</span>
+            <span class="value">{{ selectedMatch.nazevSezona }}</span>
+          </div>
+          <div class="info-row" *ngIf="selectedMatch.skoreTym1 !== null && selectedMatch.skoreTym2 !== null">
+            <span class="label">Výsledek:</span>
+            <span class="value">{{ selectedMatch.skoreTym1 }} : {{ selectedMatch.skoreTym2 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal pro detail hráče -->
+  <div *ngIf="selectedPlayer" class="player-detail-modal" (click)="closePlayerDetail()">
+    <div class="player-detail-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Detail hráče</h3>
+        <button class="close-btn" (click)="closePlayerDetail()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="player-main-info">
+          <div class="player-info-card">
+            <h4>{{ selectedPlayer.jmeno }} {{ selectedPlayer.prijmeni }}</h4>
+            <div class="player-details">
+              <div class="detail-item" *ngIf="selectedPlayer.pozice">
+                <span class="label">Pozice:</span>
+                <span class="value">{{ selectedPlayer.pozice }}</span>
+              </div>
+              <div class="detail-item" *ngIf="selectedPlayer.vek">
+                <span class="label">Věk:</span>
+                <span class="value">{{ selectedPlayer.vek }} let</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">Tým:</span>
+                <span class="value team-link" (click)="closePlayerDetail()">{{ team.nazev }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="player-matches-section">
+          <h5>Zápasy hráče ({{ playerMatches.length }})</h5>
+          
+          <div *ngIf="loadingPlayerMatches" class="loading-small">Načítání zápasů...</div>
+          
+          <div *ngIf="!loadingPlayerMatches && playerMatches.length === 0" class="empty-message-small">
+            Hráč zatím neodehrál žádné zápasy
+          </div>
+
+          <div *ngIf="!loadingPlayerMatches && playerMatches.length > 0" class="player-matches-list">
+            <div *ngFor="let match of playerMatches" class="match-item" (click)="openMatchDetailFromPlayer(match)">
+              <div class="match-item-date">{{ match.datum | date: 'dd.MM.yyyy' }}</div>
+              <div class="match-item-teams">
+                <span>{{ match.nazevTym1 }}</span>
+                <span class="score" *ngIf="match.skoreTym1 !== null && match.skoreTym2 !== null">
+                  {{ match.skoreTym1 }} : {{ match.skoreTym2 }}
+                </span>
+                <span>{{ match.nazevTym2 }}</span>
+              </div>
+              <div class="match-item-season" *ngIf="match.nazevSezona">{{ match.nazevSezona }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

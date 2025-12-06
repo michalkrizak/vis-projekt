@@ -6,4 +6,5 @@ namespace api.BLL.Interfaces;
 public interface ILoginService
 {
     Task<LoginResponseDto> AuthenticateAsync(LoginRequestDto loginRequest);
+    Task<LoginResponseDto> RegisterAsync(RegisterRequestDto registerRequest);
 }

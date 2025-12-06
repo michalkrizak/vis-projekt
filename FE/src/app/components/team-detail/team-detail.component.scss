@@ -93,11 +93,6 @@
   min-height: 300px;
 }
 
-/* Hráči */
-.players-list {
-  overflow-x: auto;
-}
-
 .players-table {
   width: 100%;
   border-collapse: collapse;
@@ -125,6 +120,16 @@
   background: #f8f9fa;
 }
 
+.player-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-row:hover {
+  background: #f0f2ff !important;
+  transform: translateX(3px);
+}
+
 /* Zápasy */
 .matches-grid {
   display: grid;
@@ -137,11 +142,13 @@
   border-radius: 8px;
   border-left: 4px solid #667eea;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .match-card:hover {
   background: #f0f2ff;
   transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
 }
 
 .match-date {
@@ -192,6 +199,144 @@
   font-size: 16px;
 }
 
+/* Modal pro detail zápasu */
+.match-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.match-detail-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 2px solid #e0e0e0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px 12px 0 0;
+
+  h3 {
+    margin: 0;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    color: white;
+    font-size: 32px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.modal-body {
+  padding: 30px 25px;
+}
+
+.match-main-info {
+  margin-bottom: 30px;
+}
+
+.teams-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+}
+
+.team-box {
+  text-align: center;
+  flex: 1;
+
+  .team-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .team-score {
+    font-size: 48px;
+    font-weight: 700;
+    color: #667eea;
+  }
+}
+
+.vs-separator {
+  font-size: 32px;
+  font-weight: 600;
+  color: #999;
+}
+
+.match-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+
+  .label {
+    font-weight: 600;
+    color: #666;
+  }
+
+  .value {
+    color: #333;
+    font-weight: 500;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .team-detail {
     padding: 20px;
@@ -216,5 +361,170 @@
   .players-table th,
   .players-table td {
     padding: 8px;
+  }
+
+  .match-detail-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .teams-display {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-box .team-score {
+    font-size: 36px;
+  }
+}
+
+/* Modal pro detail hráče */
+.player-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.player-detail-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.player-main-info {
+  margin-bottom: 25px;
+}
+
+.player-info-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 25px;
+  border-radius: 8px;
+  color: white;
+
+  h4 {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .player-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+
+    .label {
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+
+    .team-link {
+      cursor: pointer;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.player-matches-section {
+  h5 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.loading-small {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+.empty-message-small {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 14px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.player-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+}
+
+.match-item {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border-left: 3px solid #667eea;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #f0f2ff;
+    transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  }
+
+  .match-item-date {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+  }
+
+  .match-item-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: #333;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .score {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+
+  .match-item-season {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
   }
 }

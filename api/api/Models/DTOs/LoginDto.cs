@@ -14,3 +14,10 @@ public class LoginResponseDto
     public string Prijmeni { get; set; } = null!;
     public string Message { get; set; } = null!;
 }
+
+public class RegisterRequestDto
+{
+    public string Jmeno { get; set; } = null!;
+    public string Prijmeni { get; set; } = null!;
+    public string Heslo { get; set; } = null!;
+}

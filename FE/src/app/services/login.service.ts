@@ -50,6 +50,18 @@ export class LoginService {
     );
   }
 
+  register(credentials: LoginRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/register`, credentials).pipe(
+      tap(response => {
+        // Uložit uživatele do localStorage a aktualizovat stav (pouze v prohlížeči)
+        if (isPlatformBrowser(this.platformId)) {
+          localStorage.setItem('currentUser', JSON.stringify(response));
+        }
+        this.currentUserSubject.next(response);
+      })
+    );
+  }
+
   logout(): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('currentUser');

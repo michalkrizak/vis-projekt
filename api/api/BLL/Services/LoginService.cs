@@ -36,4 +36,39 @@ public class LoginService : ILoginService
             Message = "Přihlášení proběhlo úspěšně."
         };
     }
+
+    public async Task<LoginResponseDto> RegisterAsync(RegisterRequestDto registerRequest)
+    {
+        // Kontrola, zda uživatel již existuje
+        var userExists = await _loginDao.UserExistsAsync(
+            registerRequest.Jmeno, 
+            registerRequest.Prijmeni
+        );
+
+        if (userExists)
+        {
+            throw new InvalidOperationException("Uživatel s tímto jménem a příjmením již existuje.");
+        }
+
+        // Validace délky hesla
+        if (string.IsNullOrWhiteSpace(registerRequest.Heslo) || registerRequest.Heslo.Length < 6)
+        {
+            throw new ArgumentException("Heslo musí mít alespoň 6 znaků.");
+        }
+
+        // Vytvoření nového uživatele
+        var newUser = await _loginDao.CreateUserAsync(
+            registerRequest.Jmeno,
+            registerRequest.Prijmeni,
+            registerRequest.Heslo
+        );
+
+        return new LoginResponseDto
+        {
+            IdUzivatel = newUser.IdUzivatel,
+            Jmeno = newUser.Jmeno,
+            Prijmeni = newUser.Prijmeni,
+            Message = "Registrace proběhla úspěšně."
+        };
+    }
 }
